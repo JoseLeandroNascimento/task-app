@@ -7,4 +7,5 @@
     <string name="btn_save">Salvar</string>
     <string name="btn_back">Voltar</string>
     <string name="message_form_invalid">Campo de título inválido</string>
+    <string name="label_list_empty">Nenhum item disponível</string>
 </resources>
