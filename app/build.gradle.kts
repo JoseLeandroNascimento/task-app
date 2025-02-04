@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.task_app"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.task_app"
