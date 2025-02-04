@@ -10,8 +10,9 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var btnNewTask:Button
-    private lateinit var btnMyTasks:Button
+    private lateinit var btnNewTask: Button
+    private lateinit var btnMyTasks: Button
+    private lateinit var tasks: MutableList<Task>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,11 +24,22 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        val novaTask = intent.getStringExtra("NEW_TASK")
+
+        novaTask?.let {
+            tasks.plus(
+                Task(
+                    id = tasks.size + 1,
+                    title = it
+                )
+            )
+        }
+
         btnNewTask = findViewById(R.id.btn_new_task)
         btnMyTasks = findViewById(R.id.btn_my_tasks)
 
         btnNewTask.setOnClickListener {
-            val intent = Intent(this,Activity_new_task::class.java)
+            val intent = Intent(this, Activity_new_task::class.java)
             startActivity(intent)
         }
 

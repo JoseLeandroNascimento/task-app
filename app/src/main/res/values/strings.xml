@@ -6,4 +6,5 @@
     <string name="placeholder_title">Digite o título da terefa</string>
     <string name="btn_save">Salvar</string>
     <string name="btn_back">Voltar</string>
+    <string name="message_form_invalid">Campo de título inválido</string>
 </resources>
