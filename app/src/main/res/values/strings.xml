@@ -2,4 +2,8 @@
     <string name="app_name">My Tasks</string>
     <string name="btn_new_task">Nova Tarefa</string>
     <string name="btn_my_tasks">Minhas tarefas</string>
+    <string name="label_title">Titulo</string>
+    <string name="placeholder_title">Digite o título da terefa</string>
+    <string name="btn_save">Salvar</string>
+    <string name="btn_back">Voltar</string>
 </resources>

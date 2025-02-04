@@ -5,47 +5,47 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:gravity="center_vertical"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".Activity_new_task">
 
     <LinearLayout
-        android:layout_width="200dp"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        tools:ignore="UselessParent">
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/baseline_task_alt_24" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:text="@string/app_name"
-            android:textSize="20sp"
+            android:text="@string/label_title"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btn_new_task"
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/green_600"
-            android:textStyle="bold"
-            android:text="@string/btn_new_task" />
+            android:hint="@string/placeholder_title"
+            android:inputType="text" />
 
         <Button
-            android:id="@+id/btn_my_tasks"
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/green_600"
+            android:text="@string/btn_save"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/btn_back"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@android:color/transparent"
             android:textColor="@color/green_600"
-            android:text="@string/btn_my_tasks"
+            android:text="@string/btn_back"
             android:textStyle="bold"
-             />
+            />
+
     </LinearLayout>
 
 </LinearLayout>
