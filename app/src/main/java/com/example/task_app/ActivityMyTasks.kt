@@ -41,21 +41,7 @@ class ActivityMyTasks : AppCompatActivity() {
 
         verifyListEmpty()
 
-        val adapter = MyTasksAdapter(itemsTasks, this) { id ->
-
-//            AlertDialog.Builder(this)
-//                .setTitle("Deletar tarefa")
-//                .setMessage("Gostaria de excluir a tarefa")
-//                .setPositiveButton(android.R.string.ok) { dialogInterface: DialogInterface, i: Int ->
-//                    itemsTasks = itemsTasks.filter {
-//                        it.id != id
-//                    }.toMutableList()
-//                    SharedPreferenceTasks.saveData(this@ActivityMyTasks, itemsTasks)
-//                    verifyListEmpty()
-//                }.show()
-
-
-        }
+        val adapter = MyTasksAdapter(itemsTasks, this)
 
         btnVoltar.setOnClickListener {
             finish()
@@ -80,7 +66,6 @@ class ActivityMyTasks : AppCompatActivity() {
     inner class MyTasksAdapter(
         private val items: MutableList<Task>,
         private val context: Context,
-        private val onDeleteClick: (id: Int) -> Unit
     ) : RecyclerView.Adapter<MyTaskHolder>() {
 
 
