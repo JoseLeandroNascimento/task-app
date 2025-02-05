@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class Activity_new_task : AppCompatActivity() {
+class Activitynewtask : AppCompatActivity() {
 
     private lateinit var btnSave: Button
     private lateinit var btnBack: Button
@@ -38,6 +38,7 @@ class Activity_new_task : AppCompatActivity() {
 
             if (!isValid()) {
                 Toast.makeText(this, R.string.message_form_invalid, Toast.LENGTH_LONG).show()
+                return@setOnClickListener
             }
 
             val intent = Intent(this, MainActivity::class.java)

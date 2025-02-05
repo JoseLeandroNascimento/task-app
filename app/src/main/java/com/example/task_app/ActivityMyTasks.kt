@@ -1,5 +1,8 @@
 package com.example.task_app
 
+import android.app.AlertDialog
+import android.content.Context
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
@@ -38,12 +41,20 @@ class ActivityMyTasks : AppCompatActivity() {
 
         verifyListEmpty()
 
-        val adapter = MyTasksAdapter(itemsTasks) { id ->
-            itemsTasks = itemsTasks.filter {
-                it.id != id
-            }.toMutableList()
-            SharedPreferenceTasks.saveData(this, itemsTasks)
-            verifyListEmpty()
+        val adapter = MyTasksAdapter(itemsTasks, this) { id ->
+
+//            AlertDialog.Builder(this)
+//                .setTitle("Deletar tarefa")
+//                .setMessage("Gostaria de excluir a tarefa")
+//                .setPositiveButton(android.R.string.ok) { dialogInterface: DialogInterface, i: Int ->
+//                    itemsTasks = itemsTasks.filter {
+//                        it.id != id
+//                    }.toMutableList()
+//                    SharedPreferenceTasks.saveData(this@ActivityMyTasks, itemsTasks)
+//                    verifyListEmpty()
+//                }.show()
+
+
         }
 
         btnVoltar.setOnClickListener {
@@ -68,6 +79,7 @@ class ActivityMyTasks : AppCompatActivity() {
 
     inner class MyTasksAdapter(
         private val items: MutableList<Task>,
+        private val context: Context,
         private val onDeleteClick: (id: Int) -> Unit
     ) : RecyclerView.Adapter<MyTaskHolder>() {
 
@@ -93,11 +105,22 @@ class ActivityMyTasks : AppCompatActivity() {
             holder.bind(task)
 
             holder.btnDelete.setOnClickListener {
-                onDeleteClick(task.id)
 
-                items.removeAt(position)
-                notifyItemRemoved(position)
-                notifyItemRangeChanged(position, items.size)
+                AlertDialog.Builder(context)
+                    .setTitle(R.string.dialog_title_delete_task)
+                    .setMessage(R.string.dialog_message_delete_task)
+                    .setPositiveButton(android.R.string.ok) { dialogInterface: DialogInterface, i: Int ->
+                        itemsTasks = itemsTasks.filter {
+                            it.id != 1
+                        }.toMutableList()
+                        SharedPreferenceTasks.saveData(this@ActivityMyTasks, itemsTasks)
+                        items.removeAt(position)
+                        notifyItemRemoved(position)
+                        notifyItemRangeChanged(position, items.size)
+                        verifyListEmpty()
+
+                    }.show()
+
             }
 
         }
@@ -107,7 +130,7 @@ class ActivityMyTasks : AppCompatActivity() {
     class MyTaskHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private lateinit var task: Task
-        public lateinit var btnDelete: ImageView
+        lateinit var btnDelete: ImageView
 
         fun bind(item: Task) {
 

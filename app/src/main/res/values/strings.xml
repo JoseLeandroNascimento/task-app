@@ -8,4 +8,6 @@
     <string name="btn_back">Voltar</string>
     <string name="message_form_invalid">Campo de título inválido</string>
     <string name="label_list_empty">Nenhum item disponível</string>
+    <string name="dialog_title_delete_task">Deletar tarefa</string>
+    <string name="dialog_message_delete_task">Gostaria de excluir a tarefa</string>
 </resources>

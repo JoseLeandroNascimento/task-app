@@ -16,7 +16,7 @@
             android:name=".ActivityMyTasks"
             android:exported="false" />
         <activity
-            android:name=".Activity_new_task"
+            android:name=".Activitynewtask"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
